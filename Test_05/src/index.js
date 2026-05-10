@@ -4,11 +4,10 @@ const router = require("../src/routes/userRoutes")
 const app = express()
 connectDB()
 app.use(express.json())
-const port = 3000
 
-app.use("/api",router);
 
-app.listen(port,(req,res)=>{
-    console.log('application is running on port',port);
-    
-})
+app.use("",router);
+
+
+
+module.exports = app
