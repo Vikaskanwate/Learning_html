@@ -1,0 +1,76 @@
+html,body{
+    margin: 0;
+    box-sizing: border-box;
+}
+.app {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s ease;
+  }
+  
+  .container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+  
+  .title {
+    font-family: "Segoe UI", sans-serif;
+    margin-bottom: 20px;
+  }
+  
+  .color-input {
+    border: none;
+    width: 60px;
+    height: 40px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  .color-text {
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  
+  .btn{
+    display: flex;
+    align-content: center;
+    /* justify-content: space-around; */
+    gap: 15px;
+  }
+
+  .reset-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .reset-btn:hover {
+    background: #555;
+  }
+  
+  .copy{
+    background-color: #46356e;
+  }
+
+  .copy:hover{
+    background-color: #8d6fd3;
+    transition: background-color 0.3s ease;
+    color: black;
+  }
+
+  .copied{
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #333;
+  }
+

@@ -1,9 +1,11 @@
 import React from 'react'
-import Counter  from './components/counter'
+import Counter from './components/counter'
+import BG from './components/bgChanger'
 const App = () => {
   return (
     <div>
-      <Counter/>
+      {/* <Counter/> */}
+      <BG/>
     </div>
   )
 }
