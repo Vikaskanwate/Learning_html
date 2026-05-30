@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import '../src/App.css'
 const App = () => {
   const [tasks, setTasks] = useState([])
   const [title, setTitle] = useState("")
@@ -18,13 +19,19 @@ const App = () => {
     setTitle("")
   }
 
+  const updateTask = () => {
+    axios.put(`http://localhost:8000/tasks/${id}`)
+      .then(() => setTasks(tasks.map(t => t.id === id ? res.data : item)))
+      .catch(err => console.error(err))
+  }
+
   const deleteTask = (id) => {
     axios.delete(`http://localhost:8000/tasks/${id}`)
       .then(() => setTasks(tasks.filter(t => t.id !== id)))
       .catch(err => console.error(err));
   };
   return (
-    <div>
+    <div className='app'>
       <h1>Task Manager</h1>
       <input
         value={title}
@@ -36,8 +43,13 @@ const App = () => {
       <ul>
         {tasks.map(task => (
           <li key={task.id}>
+            
+
             {task.title} - {task.status}
-            <button onClick={() => deleteTask(task.id)}>Delete</button>
+
+            <button className='delete-btn' onClick={() => deleteTask(task.id)}>Delete</button>
+            <button className="update-btn" onClick={() => updateTask(task.id)}>update</button>
+          
           </li>
         ))}
       </ul>
