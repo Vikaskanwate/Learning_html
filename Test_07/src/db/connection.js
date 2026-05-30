@@ -2,7 +2,8 @@ const mongoose = require('mongoose')
 
 exports.connectDB = async ()=>{
     try{
-        await mongoose.connect("mongodb://localhost:27017/newUser")
+        const conn = await mongoose.connect("mongodb://localhost:27017/newUser")
+        console.log('mongodb connected successfully');
     }catch(er){
         console.log(er);
         process.exit(1);
