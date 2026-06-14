@@ -10,10 +10,11 @@ const userSchema = new mongoose.Schema({
         required:true
     }
 })
-
-userSchema.pre("save",async(next)=>{
-    if(!this.isModified("password")) return next();
-    this.password = await bcrypt.hash(this.password ,10)
+// when we are using async there is no need to use the next()
+userSchema.pre("save", async function(){
+    if(!this.isModified("password")) return;
+    const salt = await bcrypt.genSalt(10)
+    this.password = await bcrypt.hash(this.password ,salt)
 })
 
 module.exports  =  mongoose.model("User",userSchema);
